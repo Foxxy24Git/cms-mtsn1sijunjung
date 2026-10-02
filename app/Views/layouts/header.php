@@ -1,3 +1,4 @@
+<?php if (!isset($school_logo)) { $school_logo = (new \App\Models\SettingModel())->get('school_logo')['value'] ?? ''; } ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,6 +18,11 @@
   <meta name="twitter:description" content="<?= esc($site_description ?? $site_tagline) ?>">
   <meta name="twitter:image" content="<?= base_url('assets/img/og-default.jpg') ?>">
   <link rel="canonical" href="<?= current_url() ?>">
+  <?php if (!empty($school_logo)): ?>
+  <link rel="icon" href="<?= esc($school_logo) ?>">
+  <?php else: ?>
+  <link rel="icon" href="<?= base_url('favicon.ico') ?>">
+  <?php endif; ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -77,7 +83,6 @@
   </div>
 
   <!-- ===== HEADER MAIN ===== -->
-  <?php if (!isset($school_logo)) { $school_logo = (new \App\Models\SettingModel())->get('school_logo')['value'] ?? ''; } ?>
   <header class="header" role="banner">
     <div class="container header-inner">
       <a href="<?= base_url() ?>" class="logo" aria-label="Beranda <?= esc($site_name) ?>">
