@@ -1,0 +1,14 @@
+.git
+.gitignore
+.DS_Store
+.env
+vendor/
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/debugbar/*
+build/
+tests/
+*.md
+*.pdf
+docker-compose.yml
