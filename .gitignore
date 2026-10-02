@@ -1,0 +1,11 @@
+# Kredensial, dependencies, runtime
+.env
+vendor/
+writable/
+
+# Test artifacts & cache
+build/
+
+# OS files
+.DS_Store
+
